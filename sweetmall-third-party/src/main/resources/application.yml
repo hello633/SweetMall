@@ -1,0 +1,22 @@
+spring:
+  cloud:
+
+    alicloud:
+      access-key: LTAI5tJ7URcApFztb1hYAGrG
+      secret-key: 07voi1udJi8EIUQUm7EGudvQeMeBvR
+      oss:
+        endpoint: oss-cn-shenzhen.aliyuncs.com
+        bucket: sweetmall
+
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+
+  application:
+    name: sweetmall-third-party
+
+server:
+  port: 30000
+
+

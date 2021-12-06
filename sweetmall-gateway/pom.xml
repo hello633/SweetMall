@@ -6,23 +6,23 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.5.RELEASE</version>
+        <version>2.5.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>com.mycompany.sweetmall</groupId>
-    <artifactId>sweetmall-product</artifactId>
+    <artifactId>sweetmall-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>sweetmall-product</name>
-    <description>product service</description>
+    <name>sweetmall-gateway</name>
+    <description>api网关</description>
 
     <properties>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+        <spring-cloud.version>2020.0.4</spring-cloud.version>
     </properties>
 
+    
     <dependencies>
-
         <dependency>
             <groupId>com.mycompany.sweetmall</groupId>
             <artifactId>sweetmall-common</artifactId>
@@ -30,31 +30,10 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <!--<dependency>-->
-            <!--<groupId>org.hibernate.validator</groupId>-->
-            <!--<artifactId>hibernate-validator</artifactId>-->
-            <!--<version>6.2.0.Final</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>javax.validation</groupId>-->
-            <!--<artifactId>validation-api</artifactId>-->
-            <!--<version>2.0.1.Final</version>-->
-        <!--</dependency>-->
-
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -62,6 +41,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -82,5 +62,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
