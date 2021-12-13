@@ -8,6 +8,7 @@ import com.mycompany.common.valid.AddGroup;
 import com.mycompany.common.valid.UpdateGroup;
 import com.mycompany.common.valid.UpdateStatusGroup;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,7 +44,6 @@ public class BrandController {
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = brandService.queryPage(params);
-
         return R.ok().put("page", page);
     }
 
@@ -86,10 +86,12 @@ public class BrandController {
      */
     @RequestMapping("/update")
     public R update(@Validated({UpdateGroup.class})@RequestBody BrandEntity brand){
-		brandService.updateById(brand);
+		brandService.updateDetail(brand);
 
         return R.ok();
     }
+
+
 
     @RequestMapping("/update/status")
     public R updateStatus(@Validated({UpdateStatusGroup.class})@RequestBody BrandEntity brand){

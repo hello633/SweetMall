@@ -20,6 +20,9 @@
         <module>sweetmall-member</module>
         <module>sweetmall-order</module>
         <module>sweetmall-product</module>
+        <module>renren-fast</module>
+        <module>renren-generator</module>
+        <module>sweetmall-common</module>
     </modules>
 
 

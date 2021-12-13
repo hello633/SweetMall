@@ -1,5 +1,7 @@
 package com.mycompany.sweetmall.product.service.impl;
 
+import com.mycompany.sweetmall.product.service.CategoryBrandRelationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,10 +19,14 @@ import com.mycompany.common.utils.Query;
 import com.mycompany.sweetmall.product.dao.CategoryDao;
 import com.mycompany.sweetmall.product.entity.CategoryEntity;
 import com.mycompany.sweetmall.product.service.CategoryService;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service("categoryService")
 public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity> implements CategoryService {
+
+    @Autowired
+    CategoryBrandRelationService categoryBrandRelationService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -64,6 +70,18 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
 
         return parentPath.toArray(new Long[0]);
 
+    }
+
+    /**
+     * 级联更新所有关联当前菜单的数据
+     * @param category
+     */
+    @Transactional
+    @Override
+    public void updateCascade(CategoryEntity category) {
+        this.updateById(category);
+        categoryBrandRelationService.updateCategory(category.getCatId(),category.getName());
+        // TODO 更新其他关联
     }
 
     private List<Long> findParentPath(Long catelogId,List<Long> path){
