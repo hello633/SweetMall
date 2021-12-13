@@ -47,7 +47,7 @@ public class AttrController {
 
 
     /**
-     * 信息
+     * 信息15315313
      */
     @RequestMapping("/info/{attrId}")
     public R info(@PathVariable("attrId") Long attrId){
